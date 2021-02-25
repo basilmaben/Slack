@@ -10,18 +10,14 @@ function Header() {
     <HeaderCointainer>
       {/* Header Left */}
       <HeaderLeft>
-        <HeaderAvatar    
-        // 
-        />
-        <AccessTimeIcon/>
-        
+        <HeaderAvatar/>
+        <AccessTimeIcon/>    
       </HeaderLeft>
       {/* Header Search */}
       <HeaderSearch>
         <SearchIcon/>
         <input placeholder = "Search"/>
       </HeaderSearch>
-
       {/* Header Right*/}
       <HeaderRight>
       <HelpOutlineIcon/>
