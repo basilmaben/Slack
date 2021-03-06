@@ -3,7 +3,7 @@ import styled from "styled-components"
 function SidebarOption({Icon, title}) {
     return (
         <SidebarOptionContainer>
-            
+            {Icon && <Icon fontSize = "small" style = {{padding:10}}/>}
         </SidebarOptionContainer>
     )
 }
