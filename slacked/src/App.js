@@ -9,14 +9,14 @@ function App() {
     <div className="App">
       <Router>
         <>
-        <Header/>
-        <AppBody>
-          <SideBar/>
-          <Switch>
-            <Route path="/" exact>
-              {/* Chat */}
-            </Route>
-          </Switch>
+          <Header />
+          <AppBody>
+            <SideBar />
+            <Switch>
+              <Route path="/" exact>
+                {/* Chat */}
+              </Route>
+            </Switch>
           </AppBody>
         </>
       </Router>
@@ -26,7 +26,7 @@ function App() {
 
 export default App;
 
-
 const AppBody = styled.div`
-
+  display: flex;
+  height: 100vh;
 `;
