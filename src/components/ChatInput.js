@@ -1,11 +1,13 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import firebase from "firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function ChatInput({ channelName, channelId, chatRef}) {
   const [input, setInput] = useState("");
+  const [user] = useAuthState(auth);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -19,12 +21,13 @@ function ChatInput({ channelName, channelId, chatRef}) {
     db.collection("rooms").doc(channelId).collection("messages").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      user: "Basil Maben",
-      userImage: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NDg0MDU0OTM2NTg1NzQz/tom-cruise-9262645-1-402.jpg",
+      user: user.displayName,
+      userImage: user.photoURL,
     });
 
     chatRef.current.scrollIntoView({
       behavior: "smooth",
+      
     })
 
     setInput("");
@@ -49,7 +52,9 @@ function ChatInput({ channelName, channelId, chatRef}) {
 export default ChatInput;
 
 const ChatInputContainer = styled.div`
+
   border-radius: 20px;
+
   > form {
     position: relative;
     display: flex;
