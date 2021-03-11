@@ -30,6 +30,7 @@ padding: 20px;
 }
 `;
 const MessageInfo = styled.div`
+
 padding-left: 10px;
 > h4 > span{
     color: gray;
